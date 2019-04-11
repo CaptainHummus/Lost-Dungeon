@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6754129291451476717}
   - component: {fileID: 1367283187927109935}
   - component: {fileID: 177725005572299024}
+  - component: {fileID: 641048893}
   m_Layer: 0
   m_Name: Room Test Template
   m_TagString: Untagged
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0025963783, y: -0.0032612681}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7789985, y: 0.82067716}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!61 &6430488071319626405
 BoxCollider2D:
@@ -214,3 +215,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.115193665, y: 0.08826357}
   m_EdgeRadius: 0
+--- !u!114 &641048893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538295942969825176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a2b07054e42944b995d919cb3b08c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explorationMarker: {fileID: 666604747621893440, guid: d9bad7046d01bab478e7d7ee3d12d41c,
+    type: 3}
