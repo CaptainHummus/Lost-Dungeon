@@ -443,5 +443,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6538295942969825176, guid: 587b73f1522fa014a985470a04bc66bd,
         type: 3}
+    - target: {fileID: 641048893, guid: 587b73f1522fa014a985470a04bc66bd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1023850161}
+    - target: {fileID: 53637456227045329, guid: 587b73f1522fa014a985470a04bc66bd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 53637456227045329, guid: 587b73f1522fa014a985470a04bc66bd,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105878037311860981, guid: 587b73f1522fa014a985470a04bc66bd,
+        type: 3}
+      propertyPath: m_Name
+      value: LinecastTrigger
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 587b73f1522fa014a985470a04bc66bd, type: 3}
