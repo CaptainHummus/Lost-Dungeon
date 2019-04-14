@@ -33,6 +33,16 @@ public class Room : MonoBehaviour
             explored = true;
             Instantiate(explorationMarker, transform.position, transform.rotation);
 
+            if (Random.Range(0f, 1f) <= 0.5f)
+            {
+                Debug.Log("BIG MONEYS");
+                player.GetComponent<Player>().gold += Random.Range(10, 200);
+            }
+            else
+            {
+                Debug.Log("ENEMY ENCOUNTER");
+            }
+
         }
     }
 
@@ -51,38 +61,6 @@ public class Room : MonoBehaviour
                 Debug.Log("NOTHING THERE ");
                 Instantiate(roomTile, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), transform.rotation);
             }
-
-
-            //hit = Physics2D.Linecast(mainCamera.transform.position, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1));
-            //if (hit)
-            //{
-            //    Debug.Log("HIT SOMETHING");
-            //    Debug.Log(hit.collider.gameObject.name);
-            //}
-            //else
-            //{
-            //    Debug.Log("NOTHING THERE");
-            //    Instantiate(roomTile, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), transform.rotation);
-
-            //}
-
-
-
-            //hit = Physics2D.Raycast(transform.position, transform.right, 10f);
-            //Debug.Log(hit.transform.name);
-            //Debug.DrawLine(transform.position, transform.right, Color.green, 10f);
-
-            //if (Physics2D.Raycast(player.transform.position, player.transform.right, 10f))
-            //{
-            //    Debug.DrawLine(player.transform.position, player.transform.right, Color.green, 10f);
-            //    Debug.Log("Hit something");
-            //    Instantiate(roomTile, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), transform.rotation);
-            //}
-            //else
-            //{
-            //    Instantiate(roomTile, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), transform.rotation);
-            //}
-
         }
         else if (collision.transform.position.x < transform.position.x - 0.4)
         {

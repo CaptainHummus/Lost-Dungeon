@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public float speedMultiplier = 10;
     public int health = 10;
 
+    public int gold = 0;
+
     private Rigidbody2D rb;
 
 
