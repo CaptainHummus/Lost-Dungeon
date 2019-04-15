@@ -11,6 +11,7 @@ public class Room : MonoBehaviour
     public GameObject player;
     private RaycastHit2D hit;
     private Camera mainCamera;
+    public GameObject combatUIPrefab;
 
     private void Start()
     {
@@ -41,6 +42,8 @@ public class Room : MonoBehaviour
             else
             {
                 Debug.Log("ENEMY ENCOUNTER");
+                Instantiate(combatUIPrefab, GameObject.Find("Canvas").transform);
+
             }
 
         }

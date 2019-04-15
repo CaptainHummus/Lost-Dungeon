@@ -276,3 +276,5 @@ MonoBehaviour:
     type: 3}
   roomTile: {fileID: 0}
   player: {fileID: 0}
+  combatUIPrefab: {fileID: 6231755604025561796, guid: b48b3980756e3b64aaeedaba286a8d5d,
+    type: 3}
