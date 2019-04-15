@@ -9,26 +9,31 @@ public class PlayerCombatCard : MonoBehaviour
     public int damageValue;
     public int cardIndex;
     public GameObject player;
+    public GameObject combatManager;
 
 
     void Start()
     {
         player = GameObject.Find("Player");
+        //combatManager = GameObject.Find("CombatUI");
         damageValue = this.player.GetComponent<Player>().GetCardValue(cardIndex - 1);
 
         if (isHidden == false)
         {
             transform.Find("Text").GetComponent<Text>().text = damageValue.ToString();
         }
+        else
+        {
+            transform.Find("Text").GetComponent<Text>().text = "?";
+        }
 
-        Time.timeScale = 0;
     }
 
 
     public void SelectCard()
     {
-        isHidden = false;
         transform.Find("Text").GetComponent<Text>().text = damageValue.ToString();
+        combatManager.GetComponent<CombatManager>().AddToPower(damageValue, true);
 
     }
 }

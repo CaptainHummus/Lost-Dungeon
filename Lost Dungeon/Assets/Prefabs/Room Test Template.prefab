@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 161528460922386030}
   - component: {fileID: 79783610364867939}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LinecastTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!61 &6430488071319626405
 BoxCollider2D:
@@ -274,7 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explorationMarker: {fileID: 666604747621893440, guid: d9bad7046d01bab478e7d7ee3d12d41c,
     type: 3}
-  roomTile: {fileID: 0}
+  roomTile: {fileID: 6538295942969825176}
   player: {fileID: 0}
-  combatUIPrefab: {fileID: 6231755604025561796, guid: b48b3980756e3b64aaeedaba286a8d5d,
-    type: 3}
+  enemy: {fileID: 7878951224318459758, guid: 4b82f379fbff45343a971768de85f1db, type: 3}

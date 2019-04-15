@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class Player : MonoBehaviour
     public int health = 10;
     public int deckLength = 6;
     public int[] combatDeck;
+
+    public GameObject healthUI;
+    public Text goldUI;
 
     public int gold = 0;
 
@@ -29,11 +34,20 @@ public class Player : MonoBehaviour
         }
         combatDeck = Shuffle(combatDeck);
 
+        healthUI = GameObject.Find("PlayerHealth");
+
+
     }
 
     void FixedUpdate()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speedMultiplier, Input.GetAxisRaw("Vertical") * speedMultiplier);
+        goldUI.text = "Player Gold :" + gold.ToString();
+    }
+
+    public void IdiotShuffle()
+    {
+        combatDeck = Shuffle(combatDeck);
     }
 
     int[] Shuffle(int[] deck)
@@ -51,5 +65,17 @@ public class Player : MonoBehaviour
     public int GetCardValue(int index)
     {
         return combatDeck[index];
+    }
+
+    public void UpdateHealth(int amount)
+    {
+        health = health + amount;
+        healthUI.GetComponent<Text>().text = ("PlayerHP: " + health.ToString());
+
+        if (health < 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
     }
 }
