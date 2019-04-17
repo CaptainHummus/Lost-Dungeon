@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = Random.Range(1, 4);
+        health = Random.Range(1, 2);
         combatDeck = new int[deckLength];
 
 

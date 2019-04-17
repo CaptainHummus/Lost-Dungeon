@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 1
-  health: 10
+  health: 5
   deckLength: 6
   combatDeck: 000000000000000000000000000000000000000000000000
   healthUI: {fileID: 0}
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PlayerHP : 10'
+  m_Text: 'PlayerHP: 5'
 --- !u!222 &1804523260
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private float horizontal;
     private float vertical;
     public float speedMultiplier = 10;
-    public int health = 10;
+    public int health = 5;
     public int deckLength = 6;
     public int[] combatDeck;
 
