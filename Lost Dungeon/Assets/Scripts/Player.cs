@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speedMultiplier, Input.GetAxisRaw("Vertical") * speedMultiplier);
-        goldUI.text = "Player Gold :" + gold.ToString();
+        //goldUI.text = "Player Gold :" + gold.ToString();
     }
 
     public void IdiotShuffle()
