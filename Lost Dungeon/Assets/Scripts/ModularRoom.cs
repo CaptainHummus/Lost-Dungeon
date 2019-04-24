@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ModularRoom : MonoBehaviour
 {
-    private int numberOfDoors;
     [SerializeField]
     private bool explored = false;
     [SerializeField]
     GameObject litTorch = null;
+    [SerializeField]
+    private int targetNumberOfDoors;
+    private int currentNumberOfDoors;
+
+    public string words;
+
+
+
 
     private Camera mainCamera;
 
     [SerializeField]
-    GameObject roomPrefab = null;
+    GameObject roomPrefab;
     private GameObject tempRoom;
 
 
@@ -39,19 +45,25 @@ public class ModularRoom : MonoBehaviour
 
     void Start()
     {
+        roomPrefab = (GameObject)Resources.Load("ModularRoom");
+   
+        Debug.Log(targetNumberOfDoors);
         mainCamera = Camera.main;
-        RandomizeOpenings();
-
-
-        UpdateWall(northOpen, northWallReference);
-        UpdateWall(eastOpen, eastWallReference);
-        UpdateWall(southOpen, southWallReference);
-        UpdateWall(westOpen, westWallReference);
     }
 
-    void Update()
+    private void OnEnable()
     {
-        
+        if (targetNumberOfDoors == 0)
+        {
+            targetNumberOfDoors = Random.Range(1, 5);
+        }
+        else
+        {
+            UpdateWall(northOpen, northWallReference);
+            UpdateWall(eastOpen, eastWallReference);
+            UpdateWall(southOpen, southWallReference);
+            UpdateWall(westOpen, westWallReference);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,69 +83,48 @@ public class ModularRoom : MonoBehaviour
         if (northOpen)
         {
             //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 1), Color.green, 10f);
-            if (Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 1)))
+            if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 1)))
             {
-                Debug.Log("HIT SOMETHING");
-            }
-            else
-            {
-                Debug.Log("NOTHING THERE ");
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x,
-                                                               transform.position.y + 1,
-                                                               transform.position.z)
-                                                               , transform.rotation);
+                                               transform.position.y + 1,
+                                               transform.position.z)
+                                               , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('S');
-
             }
         }
         if (eastOpen)
         {
             //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1), Color.green, 10f);
-            if (Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1)))
+            if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1)))
             {
-                Debug.Log("HIT SOMETHING");
-            }
-            else
-            {
-                Debug.Log("NOTHING THERE ");
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x + 1,
-                                                               transform.position.y,
-                                                               transform.position.z)
-                                                               , transform.rotation);
+                                               transform.position.y,
+                                               transform.position.z)
+                                               , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('W');
             }
         }
         if (southOpen)
         {
             //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z + 1), Color.green, 10f);
-            if (Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z + 1)))
+            if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z + 1)))
             {
-                Debug.Log("HIT SOMETHING");
-            }
-            else
-            {
-                Debug.Log("NOTHING THERE ");
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x,
-                                                               transform.position.y - 1,
-                                                               transform.position.z)
-                                                               , transform.rotation);
+                                               transform.position.y - 1,
+                                               transform.position.z)
+                                               , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('N');
             }
         }
         if (westOpen)
         {
             //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z + 1), Color.green, 10f);
-            if (Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z + 1)))
+            if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z + 1)))
             {
-                Debug.Log("HIT SOMETHING");
-            }
-            else
-            {
-                Debug.Log("NOTHING THERE ");
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x - 1,
-                                                               transform.position.y,
-                                                               transform.position.z)
-                                                               , transform.rotation);
+                                               transform.position.y,
+                                               transform.position.z)
+                                               , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('E');
             }
         }
@@ -147,7 +138,6 @@ public class ModularRoom : MonoBehaviour
 
     void NewTile(char entranceDirection)
     {
-
         northOpen = false;
         eastOpen = false;
         southOpen = false;
@@ -170,6 +160,7 @@ public class ModularRoom : MonoBehaviour
                 Debug.Log("Invalid Entrance Direction");
                 break;
         }
+        currentNumberOfDoors = 1;
         RandomizeOpenings();
         UpdateWall(northOpen, northWallReference);
         UpdateWall(eastOpen, eastWallReference);
@@ -179,33 +170,63 @@ public class ModularRoom : MonoBehaviour
 
     void RandomizeOpenings()
     {
-        if (!northOpen && UnityEngine.Random.value > 0.5f)
+        while (currentNumberOfDoors < targetNumberOfDoors)
         {
-            northOpen = true;
+            int _random = Random.Range(1, 5);
+            Debug.Log("_random");
+            switch (_random)
+            {
+                case 1:
+                    if (!northOpen)
+                    {
+                        northOpen = true;
+                        currentNumberOfDoors++;
+                    }
+                    break;
+                case 2:
+                    if (!eastOpen)
+                    {
+                        eastOpen = true;
+                        currentNumberOfDoors++;
+                    }
+                    break;
+                case 3:
+                    if (!southOpen)
+                    {
+                        southOpen = true;
+                        currentNumberOfDoors++;
+                    }
+                    break;
+                case 4:
+                    if (!westOpen)
+                    {
+                        westOpen = true;
+                        currentNumberOfDoors++;
+                    }
+                    break;
+                default:
+                    Debug.LogError("Faulty random number in room generation");
+                    break;
+            }
         }
-        if (!eastOpen && UnityEngine.Random.value > 0.5f)
-        {
-            eastOpen = true;
-        }
-        if (!southOpen && UnityEngine.Random.value > 0.5f)
-        {
-            southOpen = true;
-        }
-        if (!westOpen && UnityEngine.Random.value > 0.5f)
-        {
-            westOpen = true;
-        }
+
+
+        //if (!eastOpen && UnityEngine.Random.value > 0.5f)
+        //{
+        //    eastOpen = true;
+        //}
+        //if (!southOpen && UnityEngine.Random.value > 0.5f)
+        //{
+        //    southOpen = true;
+        //}
+        //if (!westOpen && UnityEngine.Random.value > 0.5f)
+        //{
+        //    westOpen = true;
+        //}
     }
 
     void UpdateWall(bool directionOpen, GameObject wallReference)
     {
-        if (directionOpen)
-        {
-            wallReference.SetActive(false);
-        }
-        else
-        {
-            wallReference.SetActive(true);
-        }
+        wallReference.SetActive(!directionOpen);
     }
 }
