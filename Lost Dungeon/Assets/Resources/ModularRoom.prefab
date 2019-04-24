@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019311634}
   - component: {fileID: 2019311635}
+  - component: {fileID: 1330444275}
   m_Layer: 0
   m_Name: tiles_dungeon_v1.1_234
   m_TagString: Untagged
@@ -190,6 +191,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1330444275
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019311633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 952a3b9532273de4f99225edbd0331ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6932062106740126275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2339,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300468, guid: e23dc85dfa1f1e74b84ee373ee98bf3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4386,6 +4406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explored: 0
   litTorch: {fileID: 1194760167}
+  targetNumberOfDoors: 0
+  words: 
   roomPrefab: {fileID: 8801322356041761786}
   northOpen: 0
   eastOpen: 0
@@ -11707,7 +11729,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300502, guid: e23dc85dfa1f1e74b84ee373ee98bf3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

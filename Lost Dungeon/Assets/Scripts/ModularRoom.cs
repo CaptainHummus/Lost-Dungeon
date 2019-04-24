@@ -12,11 +12,6 @@ public class ModularRoom : MonoBehaviour
     private int targetNumberOfDoors;
     private int currentNumberOfDoors;
 
-    public string words;
-
-
-
-
     private Camera mainCamera;
 
     [SerializeField]
@@ -82,7 +77,6 @@ public class ModularRoom : MonoBehaviour
     {
         if (northOpen)
         {
-            //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 1), Color.green, 10f);
             if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 1)))
             {
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x,
@@ -94,7 +88,6 @@ public class ModularRoom : MonoBehaviour
         }
         if (eastOpen)
         {
-            //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1), Color.green, 10f);
             if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1)))
             {
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x + 1,
@@ -106,7 +99,6 @@ public class ModularRoom : MonoBehaviour
         }
         if (southOpen)
         {
-            //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z + 1), Color.green, 10f);
             if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z + 1)))
             {
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x,
@@ -118,7 +110,6 @@ public class ModularRoom : MonoBehaviour
         }
         if (westOpen)
         {
-            //Debug.DrawLine(mainCamera.transform.position, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z + 1), Color.green, 10f);
             if (!Physics.Linecast(mainCamera.transform.position, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z + 1)))
             {
                 tempRoom = Instantiate(roomPrefab, new Vector3(transform.position.x - 1,
