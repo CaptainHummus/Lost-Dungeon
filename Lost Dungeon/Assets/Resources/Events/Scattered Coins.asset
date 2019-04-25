@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Scattered Coins
   m_EditorClassIdentifier: 
   eventName: Scattered Coins
-  rarity: 0
-  eventDescription: There are some coins carelessly scattered about
+  rarity: 1
+  pauseMovement: 1
+  eventDescription: There are some coins carelessly scattered about. Gain 50 gold!
   numberOfOptions: 0
   goldGain: 50
+  enemy: {fileID: 0}
+  chance: 0
   healthCalculation: 0
+  option1: {fileID: 0}
+  option2: {fileID: 0}

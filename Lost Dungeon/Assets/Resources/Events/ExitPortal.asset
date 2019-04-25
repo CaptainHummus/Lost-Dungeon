@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b98fd906be6b84b9675b0261dea021, type: 3}
-  m_Name: Hidden Treasure
+  m_Name: ExitPortal
   m_EditorClassIdentifier: 
-  eventName: Hidden Treasure
-  rarity: 2
+  eventName: A Way Out
+  rarity: 3
   pauseMovement: 1
-  eventDescription: You see a glimmer of gold jutting out from beneath a floor tile!
-    There's a small treasure beneath! Gain 750 gold.
-  numberOfOptions: 0
-  goldGain: 750
+  eventDescription: A portal opens before you. Through the swirling colors you see
+    a glimpse of a town in the distance. This portal leads back to the outside! Do
+    you take it?
+  goldGain: 0
   enemy: {fileID: 0}
   chance: 0
   healthCalculation: 0
-  option1: {fileID: 0}
-  option2: {fileID: 0}
+  exitPortal: 0
+  numberOfOptions: 2
+  option1: {fileID: 11400000, guid: 6898d8f9e0aa7fd449ef9a93f3eb13fa, type: 2}
+  option2: {fileID: 11400000, guid: ba04f5a1d35966e4b9a4396bda76977f, type: 2}

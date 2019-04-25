@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b98fd906be6b84b9675b0261dea021, type: 3}
-  m_Name: Hidden Treasure
+  m_Name: Arrow Trap_Out2
   m_EditorClassIdentifier: 
-  eventName: Hidden Treasure
-  rarity: 2
+  eventName: Continue
+  rarity: 0
   pauseMovement: 1
-  eventDescription: You see a glimmer of gold jutting out from beneath a floor tile!
-    There's a small treasure beneath! Gain 750 gold.
+  eventDescription: You try to dodge but the arrow still grazes your ribs. The pain
+    is significant.
   numberOfOptions: 0
-  goldGain: 750
+  goldGain: 0
   enemy: {fileID: 0}
   chance: 0
-  healthCalculation: 0
+  healthCalculation: -2
   option1: {fileID: 0}
   option2: {fileID: 0}

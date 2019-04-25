@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b98fd906be6b84b9675b0261dea021, type: 3}
-  m_Name: Hidden Treasure
+  m_Name: Arrow Trap
   m_EditorClassIdentifier: 
-  eventName: Hidden Treasure
+  eventName: Arrow Trap
   rarity: 2
   pauseMovement: 1
-  eventDescription: You see a glimmer of gold jutting out from beneath a floor tile!
-    There's a small treasure beneath! Gain 750 gold.
-  numberOfOptions: 0
-  goldGain: 750
+  eventDescription: Upon entering the room you stumble on a tripwire and hear the
+    mechanisms of a projectile being launched your way. You try your best to dodge
+    out of the way...
+  numberOfOptions: 2
+  goldGain: 0
   enemy: {fileID: 0}
-  chance: 0
+  chance: 0.3
   healthCalculation: 0
-  option1: {fileID: 0}
-  option2: {fileID: 0}
+  option1: {fileID: 11400000, guid: c2bb748552c4b1c4fa95b4c771be5666, type: 2}
+  option2: {fileID: 11400000, guid: 73b1b7fe3cc8bfb4586bca9b62fc7418, type: 2}
