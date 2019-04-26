@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b98fd906be6b84b9675b0261dea021, type: 3}
-  m_Name: StartEvent
+  m_Name: Potion_1
   m_EditorClassIdentifier: 
-  eventName: Lost
-  rarity: 0
+  eventName: Potion
+  rarity: 2
   pauseMovement: 1
-  eventDescription: You've awoken in the Lost Dungeon. Move with WASD to explore the
-    dungeon. Find gold and a way out and beware the danger that lurks here.
+  eventDescription: Below the pillar lies a small bottle with a familiar mark. It's
+    a rejuvenating potion! You decide to drink it right away to boost your energy.
   goldGain: 0
   enemy: {fileID: 0}
   chance: 0
-  healthCalculation: 0
+  healthCalculation: 2
   exitPortal: 0
   deathEvent: 0
   numberOfOptions: 0

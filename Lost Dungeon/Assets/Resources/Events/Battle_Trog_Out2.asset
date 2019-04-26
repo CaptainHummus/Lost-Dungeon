@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b98fd906be6b84b9675b0261dea021, type: 3}
-  m_Name: StartEvent
+  m_Name: Battle_Trog_Out2
   m_EditorClassIdentifier: 
-  eventName: Lost
+  eventName: Battle!
   rarity: 0
   pauseMovement: 1
-  eventDescription: You've awoken in the Lost Dungeon. Move with WASD to explore the
-    dungeon. Find gold and a way out and beware the danger that lurks here.
-  goldGain: 0
+  eventDescription: The troglodyte is surprisingly skilled, and you trade several
+    strikes before the monster falls to the floor. You are hurt, but find 200 gold
+    in a purse hanging from the dead monster.
+  goldGain: 200
   enemy: {fileID: 0}
   chance: 0
-  healthCalculation: 0
+  healthCalculation: -3
   exitPortal: 0
   deathEvent: 0
   numberOfOptions: 0

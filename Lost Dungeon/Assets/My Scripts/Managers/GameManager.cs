@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             //LoadScene("Win Scene");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

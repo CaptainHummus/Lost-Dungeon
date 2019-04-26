@@ -16,11 +16,13 @@ MonoBehaviour:
   rarity: 2
   pauseMovement: 1
   eventDescription: You see a glimmer of gold jutting out from beneath a floor tile!
-    There's a small treasure beneath! Gain 750 gold.
-  numberOfOptions: 0
-  goldGain: 750
+    There's a small treasure beneath! Gain 400 gold.
+  goldGain: 400
   enemy: {fileID: 0}
   chance: 0
   healthCalculation: 0
+  exitPortal: 0
+  deathEvent: 0
+  numberOfOptions: 0
   option1: {fileID: 0}
   option2: {fileID: 0}
