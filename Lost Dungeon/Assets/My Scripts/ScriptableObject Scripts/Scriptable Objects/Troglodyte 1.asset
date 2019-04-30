@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b74f3fe7e927644bad96872a6dde4a3, type: 3}
   m_Name: Troglodyte 1
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 3
   minHealth: 1
   fleeChance: 0.3
   combatDeck: ffffffff0000000001000000020000000200000003000000
