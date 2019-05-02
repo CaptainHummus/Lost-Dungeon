@@ -14,6 +14,8 @@ public class CombatManager : MonoBehaviour
     private IntVariable enemyPower = null;
     [SerializeField]
     private IntVariable enemyHealth = null;
+    [SerializeField]
+    private IntVariable playerThrowingKnives;
 
     [SerializeField]
     private Event enemyDeath = null;
@@ -31,6 +33,7 @@ public class CombatManager : MonoBehaviour
     private Enemy enemy;
     [SerializeField]
     private GameObject continueButton;
+
 
     [SerializeField]
     private Button[] playerCardsUI = new Button[6];
@@ -84,6 +87,25 @@ public class CombatManager : MonoBehaviour
         //}
     }
 
+    public void ThrowKnife()
+    {
+        if (playerThrowingKnives.variable != 0)
+        {
+
+            enemyHealth.variable--;
+            if (enemyHealth.variable < 1)
+            {
+                enemyDeath.goldGain = Random.Range(100, 200);
+                EventHandler.instance.OverrideEvent(enemyDeath);
+            }
+            playerThrowingKnives.variable--;
+        }
+        else
+        {
+            iTween.PunchScale(gameObject.transform.Find("Panel").gameObject , Vector3.one, 0.5f); // ( ͡° ͜ʖ ͡°) - kill me
+        }
+    }
+
     public void CalculateDamage()
     {
         if (playerPower.variable > enemyPower.variable)
@@ -91,7 +113,8 @@ public class CombatManager : MonoBehaviour
             enemyHealth.variable--;
             if (enemyHealth.variable < 1)
             {
-                EventHandler.instance.RunEvent(enemyDeath);
+                enemyDeath.goldGain = Random.Range(100, 200);
+                EventHandler.instance.OverrideEvent(enemyDeath);
                 gameObject.SetActive(false);
             }
         }
@@ -100,7 +123,7 @@ public class CombatManager : MonoBehaviour
             playerHealth.variable--;
             if (playerHealth.variable < 1)
             {
-                EventHandler.instance.RunEvent(playerDeath);
+                EventHandler.instance.OverrideEvent(playerDeath);
                 gameObject.SetActive(false);
             }
         }
@@ -109,13 +132,14 @@ public class CombatManager : MonoBehaviour
             enemyHealth.variable--;
             if (enemyHealth.variable < 1)
             {
-                EventHandler.instance.RunEvent(enemyDeath);
+                enemyDeath.goldGain = Random.Range(100, 200);
+                EventHandler.instance.OverrideEvent(enemyDeath);
                 gameObject.SetActive(false);
             }
             playerHealth.variable--;
             if (playerHealth.variable < 1)
             {
-                EventHandler.instance.RunEvent(playerDeath);
+                EventHandler.instance.OverrideEvent(playerDeath);
                 gameObject.SetActive(false);
             }
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExitPortal
   m_EditorClassIdentifier: 
   eventName: A Way Out
-  rarity: 3
+  rarity: 4
   pauseMovement: 1
   eventDescription: A portal opens before you. Through the swirling colors you see
     a glimpse of a town in the distance. This portal leads back to the outside! Do
@@ -22,7 +22,10 @@ MonoBehaviour:
   enemy: {fileID: 0}
   chance: 0
   healthCalculation: 0
+  powerUp: 0
+  throwingKnives: 0
   exitPortal: 0
+  deathEvent: 0
   numberOfOptions: 2
   option1: {fileID: 11400000, guid: 6898d8f9e0aa7fd449ef9a93f3eb13fa, type: 2}
   option2: {fileID: 11400000, guid: ba04f5a1d35966e4b9a4396bda76977f, type: 2}

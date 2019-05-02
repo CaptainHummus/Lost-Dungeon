@@ -22,6 +22,8 @@ public class Event : ScriptableObject
     public ScriptableEnemy enemy;
     public float chance;
     public int healthCalculation;
+    public int powerUp;
+    public int throwingKnives;
 
     public bool exitPortal;
     public bool deathEvent;

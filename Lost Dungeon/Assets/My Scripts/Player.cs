@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+enum animationMovement
+{
+    idle,
+    up,
+    down,
+    left,
+    right
+}
+
 public class Player : MonoBehaviour
 {
     [SerializeField]
@@ -22,12 +31,19 @@ public class Player : MonoBehaviour
     public int[] combatDeck;
     public bool canMove = true;
 
+    public int powerUp = 0;
+    [SerializeField]
+    private IntVariable playerThrowingKnives;
+
+
     public int knownSlots = 1;
 
 
 
 
     private Rigidbody2D rb;
+
+    private animationMovement playerAnimation;
 
 
 
@@ -37,6 +53,7 @@ public class Player : MonoBehaviour
 
         health.variable = maxHP;
         gold.variable = 0;
+        playerThrowingKnives.variable = 0;
 
         combatDeck = new int[deckLength];
 
@@ -54,12 +71,49 @@ public class Player : MonoBehaviour
         if (canMove)
         {
             rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speedMultiplier, Input.GetAxisRaw("Vertical") * speedMultiplier);
+            if (rb.velocity == Vector2.zero)
+            {
+                playerAnimation = animationMovement.idle;
+            }
+            if (Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y))
+            {
+                if (rb.velocity.x < 0)
+                {
+                    playerAnimation = animationMovement.left;
+                }
+                else
+                {
+                    playerAnimation = animationMovement.right;
+                }
+            }
+            else if (Mathf.Abs(rb.velocity.x) < Mathf.Abs(rb.velocity.y))
+            {
+                if (rb.velocity.y < 0)
+                {
+                    playerAnimation = animationMovement.down;
+                }
+                else
+                {
+                    playerAnimation = animationMovement.up;
+                }
+            }
+
+
         }
         else
         {
             rb.velocity = new Vector2(0, 0);
         }
         //goldUI.text = "Player Gold :" + gold.ToString();
+    }
+
+    public void PowerUP()
+    {
+        powerUp++;
+        for (int i = 0; i < combatDeck.Length; i++)
+        {
+            combatDeck[i] = i - 1 + powerUp;
+        }
     }
 
     public void ShufflePlayerDeck()
@@ -99,7 +153,7 @@ public class Player : MonoBehaviour
     IEnumerator RunStartEvent()
     {
         yield return new WaitForSecondsRealtime(0.1f);
-        EventHandler.instance.RunEvent(startEvent);
+        EventHandler.instance.OverrideEvent(startEvent);
     }
 
 }

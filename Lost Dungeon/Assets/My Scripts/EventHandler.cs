@@ -17,6 +17,8 @@ public class EventHandler : MonoBehaviour
     private Event emptyEvent = null;
     [SerializeField]
     private Event deathEvent = null;
+    [SerializeField]
+    private Event portalEvent = null;
 
 
     [SerializeField]
@@ -24,7 +26,12 @@ public class EventHandler : MonoBehaviour
     [SerializeField]
     private IntVariable playerGold = null;
     [SerializeField]
+    private IntVariable playerThrowingKnives;
+    [SerializeField]
     private GameObject enemyPrefab = null;
+    [SerializeField]
+    private int eventCount = 0;
+
 
 
     private TextMeshProUGUI eventText;
@@ -82,6 +89,10 @@ public class EventHandler : MonoBehaviour
 
     public void LoadRandomEvent()
     {
+        if (eventCount % 10 == 0)
+        {
+            OverrideEvent(portalEvent);
+        }
         randomInt = Random.Range(1, 11);
         if (randomInt <= 5)
         {
@@ -96,12 +107,19 @@ public class EventHandler : MonoBehaviour
         {
             selectedEvent = rareEvents[Random.Range(0, rareEvents.Count)];
         }
+        eventCount++;
+        RunEvent(selectedEvent);
+    }
 
+    public void OverrideEvent(Event overrideEvent)
+    {
+        selectedEvent = overrideEvent;
         RunEvent(selectedEvent);
     }
 
     public void RunEvent(Event currentEvent)
     {
+
         eventTitle.text = currentEvent.eventName;
         eventText.text = currentEvent.eventDescription;
 
@@ -174,9 +192,18 @@ public class EventHandler : MonoBehaviour
             GameManager.instance.LoadScene("Win Scene");
         }
 
+        if (selectedEvent.powerUp != 0)
+        {
+            player.GetComponent<Player>().PowerUP();
+        }
+        if (selectedEvent.throwingKnives != 0)
+        {
+            playerThrowingKnives.variable += selectedEvent.throwingKnives;
+        }
+
         if (selectedEvent.enemy != null)
         {
-           var newEnemy = Instantiate(enemyPrefab, player.transform);
+           var newEnemy = Instantiate(enemyPrefab);
            newEnemy.GetComponent<Enemy>().currentEnemy = selectedEvent.enemy;
             //newEnemy.GetComponent<Enemy>()
 

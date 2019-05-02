@@ -18,9 +18,11 @@ MonoBehaviour:
   eventDescription: Something about the blade disturbs you. You decide to leave the
     blade there.
   goldGain: 0
-  enemy: {fileID: 11400000, guid: 67c5c5018d7fade4198756b19a60a9ed, type: 2}
+  enemy: {fileID: 0}
   chance: 0
   healthCalculation: 0
+  powerUp: 0
+  throwingKnives: 0
   exitPortal: 0
   deathEvent: 0
   numberOfOptions: 0

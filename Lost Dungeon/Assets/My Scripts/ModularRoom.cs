@@ -37,6 +37,9 @@ public class ModularRoom : MonoBehaviour
     [SerializeField]
     GameObject westWallReference = null;
 
+    [SerializeField]
+    GameObject chestReference = null;
+
 
     void Start()
     {
@@ -57,6 +60,10 @@ public class ModularRoom : MonoBehaviour
             UpdateWall(eastOpen, eastWallReference);
             UpdateWall(southOpen, southWallReference);
             UpdateWall(westOpen, westWallReference);
+        }
+        if (Random.value < 0.1)
+        {
+            chestReference.SetActive(true);
         }
 
     }
