@@ -18,7 +18,6 @@ public class PostGameText : MonoBehaviour
 
 
     private TextMeshProUGUI textMeshReference;
-    // Start is called before the first frame update
     void Start()
     {
         textMeshReference = GetComponent<TextMeshProUGUI>();

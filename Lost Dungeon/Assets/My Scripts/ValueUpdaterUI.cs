@@ -10,6 +10,8 @@ public class ValueUpdaterUI : MonoBehaviour
 
     private TMP_Text text;
 
+    bool unchanged = false;
+
     private void Awake()
     {
         text = GetComponent<TMP_Text>();
@@ -17,7 +19,16 @@ public class ValueUpdaterUI : MonoBehaviour
 
     private void Update()
     {
-        text.text = value.variable.ToString();
+        if (text.text == value.variable.ToString())
+        {
+            
+        }
+        else
+        {
+            iTween.PunchScale(gameObject, new Vector3(1, 1, 1), 1f);
+            text.text = value.variable.ToString();
+
+        }
     }
 
 }

@@ -1,47 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
-    public int playerPower;
-    public int playerHealth;
-    public int enemyPower;
-    public int enemyHealth;
+    [SerializeField]
+    private IntVariable playerPower = null;
+    [SerializeField]
+    private IntVariable playerHealth = null;
+    [SerializeField]
+    private IntVariable enemyPower = null;
+    [SerializeField]
+    private IntVariable enemyHealth = null;
 
-    public int playerCardCounter = 0;
-    public int enemyCardCounter = 0;
+    private int playerCardCounter = 0;
+    private int enemyCardCounter = 0;
 
-    public GameObject playerPowerText;
-    public GameObject enemyPowerText;
+    [SerializeField]
+    private Player player;
+    [SerializeField]
+    private GameObject enemy;
 
-    public GameObject player;
-    public GameObject enemy;
-    //GameObject[] EnemyButtons;
+    [SerializeField]
+    private Button[] playerCardsUI = new Button[6];
+    [SerializeField]
+    private Button[] enemyCardsUI = new Button[6];
+
 
 
     void Start()
     {
-        playerPowerText = GameObject.Find("PlayerPower");
-        enemyPowerText = GameObject.Find("EnemyPower");
-
-        //playerHealthUI = GameObject.Find("PlayerHealth");
-        //enemyHealthUI = GameObject.Find("EnemyHealth");
-
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
-        //playerHealth = player.GetComponent<Player>().health;
-        enemyHealth = enemy.GetComponent<OldEnemy>().health;
 
+    }
+
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        updateCardValues();
+
+    }
+
+    void updateCardValues()
+    {
+        for (int i = 0; i < playerCardsUI.Length; i++)
+        {
+            playerCardsUI[i].GetComponent<CardButton>().cardValue = player.combatDeck[i];
+            playerCardsUI[i].GetComponent<CardButton>().Reveal();
+        }
     }
 
     void CalculateDamage(int _playerPower, int _enemyPower)
     {
         if (_playerPower > _enemyPower)
         {
-            enemy.GetComponent<OldEnemy>().UpdateHealth(-1);
-            if (enemyHealth < 1)
+            enemyHealth.variable--;
+            if (enemyHealth.variable < 1)
             {
 
             }
@@ -49,7 +67,7 @@ public class CombatManager : MonoBehaviour
         else if (_playerPower < _enemyPower)
         {
             player.GetComponent<Player>().UpdateHealth(-1);
-            if (playerHealth < 1)
+            if (playerHealth.variable < 1)
             {
 
             }
@@ -58,13 +76,11 @@ public class CombatManager : MonoBehaviour
         {
 
         }
-        playerPower = 0;
-        enemyPower = 0;
+        playerPower.variable = 0;
+        enemyPower.variable = 0;
         playerCardCounter = 0;
         enemyCardCounter = 0;
-        playerPowerText.GetComponent<Text>().text = playerPower.ToString();
-        enemyPowerText.GetComponent<Text>().text = enemyPower.ToString();
-        player.GetComponent<Player>().IdiotShuffle();
+        player.IdiotShuffle();
         enemy.GetComponent<OldEnemy>().IdiotShuffle();
     }
 
@@ -72,20 +88,18 @@ public class CombatManager : MonoBehaviour
     {
         if (player == true && playerCardCounter < 2)
         {
-            playerPower += power;
-            playerPowerText.GetComponent<Text>().text = playerPower.ToString();
+            playerPower.variable += power;
             playerCardCounter++;
         }
         else if (player == false && enemyCardCounter < 2)
         {
-            enemyPower += power;
-            enemyPowerText.GetComponent<Text>().text = enemyPower.ToString();
+            enemyPower.variable += power;
             enemyCardCounter++;
         }
 
         if (playerCardCounter == 2 && enemyCardCounter == 2)
         {
-            CalculateDamage(playerPower, enemyPower);
+            CalculateDamage(playerPower.variable, enemyPower.variable);
         }
     }
 
