@@ -5,6 +5,8 @@ using TMPro;
 
 public class CardButton : MonoBehaviour
 {
+    public bool player;
+    [SerializeField]
     public int cardValue;
     [SerializeField]
     private bool revealed;
@@ -15,13 +17,14 @@ public class CardButton : MonoBehaviour
     [SerializeField]
     private CombatManager combatManager;
 
+
     public void OnClicked()
     {
         if (!played)
         {
             revealed = true;
             played = true;
-            combatManager.AddToPower(cardValue, true);
+            combatManager.AddToPower(cardValue, player);
             valueText.text = cardValue.ToString();
         }
 
@@ -30,6 +33,7 @@ public class CardButton : MonoBehaviour
      public void Reveal()
     {
         valueText.text = cardValue.ToString();
+        revealed = true;
     }
 
      void ResetValues()

@@ -16,3 +16,4 @@ MonoBehaviour:
   minHealth: 1
   fleeChance: 0.3
   combatDeck: ffffffff0000000001000000020000000200000003000000
+  enemySprite: {fileID: 21300474, guid: 06905a07c38cf3644b80816ab2221ca5, type: 3}

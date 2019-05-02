@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     public int[] combatDeck;
     public bool canMove = true;
 
+    public int knownSlots = 1;
+
+
+
 
     private Rigidbody2D rb;
 
@@ -58,7 +62,7 @@ public class Player : MonoBehaviour
         //goldUI.text = "Player Gold :" + gold.ToString();
     }
 
-    public void IdiotShuffle()
+    public void ShufflePlayerDeck()
     {
         combatDeck = Shuffle(combatDeck);
     }
@@ -96,7 +100,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.1f);
         EventHandler.instance.RunEvent(startEvent);
-        Debug.Log("Running event");
     }
 
 }

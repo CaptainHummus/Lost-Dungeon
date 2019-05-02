@@ -106,12 +106,10 @@ public class EventHandler : MonoBehaviour
         if (!currentEvent.pauseMovement)
         {
             player.GetComponent<Player>().canMove = true;
-            Debug.Log("Move Again");
         }
         else
         {
             player.GetComponent<Player>().canMove = false;
-            Debug.Log("Stop movement");
         }
 
         switch (currentEvent.numberOfOptions)

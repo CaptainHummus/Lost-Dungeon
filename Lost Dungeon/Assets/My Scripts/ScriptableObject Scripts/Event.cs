@@ -19,7 +19,7 @@ public class Event : ScriptableObject
     public bool pauseMovement = true;
     public string eventDescription;
     public int goldGain;
-    public Enemy enemy;
+    public ScriptableEnemy enemy;
     public float chance;
     public int healthCalculation;
 
