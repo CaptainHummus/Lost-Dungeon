@@ -68,8 +68,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
-  m_Sprite: {fileID: 21300474, guid: 06905a07c38cf3644b80816ab2221ca5, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300070, guid: 67c15a1676a73544f8c9066a59f60dc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,4 +95,5 @@ MonoBehaviour:
   currentEnemy: {fileID: 11400000, guid: 67c5c5018d7fade4198756b19a60a9ed, type: 2}
   enemyHealth: {fileID: 11400000, guid: 28251fd2deab2944da5d08bd568e5a38, type: 2}
   deckLength: 6
-  combatDeck: 
+  combatDeck: 010000000200000003000000040000000500000006000000
+  combatUI: {fileID: 0}

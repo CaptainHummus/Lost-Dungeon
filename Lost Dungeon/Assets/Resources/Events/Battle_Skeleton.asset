@@ -19,11 +19,11 @@ MonoBehaviour:
     behind. The attacker is an unarmed skeleton, but you know the danger of the undead.
     You have to fight it!
   goldGain: 0
-  enemy: {fileID: 0}
-  chance: 0.6
+  enemy: {fileID: 11400000, guid: 9dcd26cb8295bfd48908ca562ee162a2, type: 2}
+  chance: 0
   healthCalculation: -1
   exitPortal: 0
   deathEvent: 0
-  numberOfOptions: 2
-  option1: {fileID: 11400000, guid: 7ed4bdcfa3c6aa248a4d7088c6cfb944, type: 2}
-  option2: {fileID: 11400000, guid: 4548073b4e317204687f8daba1aee39a, type: 2}
+  numberOfOptions: 0
+  option1: {fileID: 0}
+  option2: {fileID: 0}

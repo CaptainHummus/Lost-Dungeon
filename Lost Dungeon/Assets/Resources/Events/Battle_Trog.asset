@@ -18,11 +18,11 @@ MonoBehaviour:
   eventDescription: In front of you stands a small troglodyte armed with a spear.
     It advances towards you and you are forced to fight.
   goldGain: 0
-  enemy: {fileID: 0}
-  chance: 0.7
+  enemy: {fileID: 11400000, guid: 67c5c5018d7fade4198756b19a60a9ed, type: 2}
+  chance: 0
   healthCalculation: 0
   exitPortal: 0
   deathEvent: 0
-  numberOfOptions: 2
-  option1: {fileID: 11400000, guid: f49f043364290ca4781e66a14ed2d89a, type: 2}
-  option2: {fileID: 11400000, guid: eb5be2b76e871b540b2362be87077731, type: 2}
+  numberOfOptions: 0
+  option1: {fileID: 0}
+  option2: {fileID: 0}

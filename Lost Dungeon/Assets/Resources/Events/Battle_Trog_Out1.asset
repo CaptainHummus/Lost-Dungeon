@@ -18,7 +18,7 @@ MonoBehaviour:
   eventDescription: The troglodyte is easily dispatched, but not before it manages
     to strike you with its spear. After the skirmish you find 20 gold on its corpse.
   goldGain: 20
-  enemy: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 9dcd26cb8295bfd48908ca562ee162a2, type: 2}
   chance: 0
   healthCalculation: -1
   exitPortal: 0

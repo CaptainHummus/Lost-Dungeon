@@ -23,6 +23,8 @@ public class EventHandler : MonoBehaviour
     private IntVariable playerHealth = null;
     [SerializeField]
     private IntVariable playerGold = null;
+    [SerializeField]
+    private GameObject enemyPrefab = null;
 
 
     private TextMeshProUGUI eventText;
@@ -170,6 +172,20 @@ public class EventHandler : MonoBehaviour
         if (selectedEvent.exitPortal)
         {
             GameManager.instance.LoadScene("Win Scene");
+        }
+
+        if (selectedEvent.enemy != null)
+        {
+           var newEnemy = Instantiate(enemyPrefab, player.transform);
+           newEnemy.GetComponent<Enemy>().currentEnemy = selectedEvent.enemy;
+            //newEnemy.GetComponent<Enemy>()
+
+            Debug.Log("Enemy is NOT null");
+
+        }
+        else
+        {
+            Debug.Log("Enemy is null");
         }
 
         if (selectedEvent.deathEvent)

@@ -19,7 +19,7 @@ MonoBehaviour:
     strikes before the monster falls to the floor. You are hurt, but find 200 gold
     in a purse hanging from the dead monster.
   goldGain: 200
-  enemy: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 9dcd26cb8295bfd48908ca562ee162a2, type: 2}
   chance: 0
   healthCalculation: -3
   exitPortal: 0

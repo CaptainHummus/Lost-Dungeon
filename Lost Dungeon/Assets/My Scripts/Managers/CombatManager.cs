@@ -22,7 +22,7 @@ public class CombatManager : MonoBehaviour
 
 
 
-    private int playerCardCounter = 0;
+    public int playerCardCounter = 0;
     private int enemyCardCounter = 0;
 
     [SerializeField]
@@ -37,6 +37,13 @@ public class CombatManager : MonoBehaviour
     [SerializeField]
     private Button[] enemyCardsUI = new Button[6];
 
+    public static CombatManager instance = null;
+
+    private void Awake()
+    {
+        instance = this;
+        gameObject.SetActive(false);
+    }
 
 
     void Start()
@@ -51,6 +58,7 @@ public class CombatManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         updateCardValues();
+        player.canMove = false;
 
     }
 
@@ -62,15 +70,18 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < playerCardsUI.Length; i++)
         {
             playerCardsUI[i].GetComponent<CardButton>().cardValue = player.combatDeck[i];
+            playerCardsUI[i].GetComponent<CardButton>().ResetValues();
+            enemyCardsUI[i].GetComponent<CardButton>().cardValue = enemy.combatDeck[i];
+            enemyCardsUI[i].GetComponent<CardButton>().ResetValues();
             if (player.knownSlots -1 >= i)
             {
                 playerCardsUI[i].GetComponent<CardButton>().Reveal();
             }
         }
-        for (int i = 0; i < enemy.combatDeck.Length; i++)
-        {
-            enemyCardsUI[i].GetComponent<CardButton>().cardValue = enemy.combatDeck[i];
-        }
+        //for (int i = 0; i < enemy.combatDeck.Length; i++)
+        //{
+        //    enemyCardsUI[i].GetComponent<CardButton>().cardValue = enemy.combatDeck[i];
+        //}
     }
 
     public void CalculateDamage()
@@ -112,8 +123,7 @@ public class CombatManager : MonoBehaviour
         enemyPower.variable = 0;
         playerCardCounter = 0;
         enemyCardCounter = 0;
-        player.ShufflePlayerDeck();
-        enemy.EnemyShuffle();
+        updateCardValues();
         continueButton.SetActive(false);
     }
 
@@ -122,8 +132,8 @@ public class CombatManager : MonoBehaviour
         if (player == true && playerCardCounter < 2)
         {
             playerPower.variable += power;
-            playerCardCounter++;
             enemyCardsUI[playerCardCounter].GetComponent<CardButton>().OnClicked();
+            playerCardCounter++;
         }
         else if (player == false && enemyCardCounter < 2)
         {

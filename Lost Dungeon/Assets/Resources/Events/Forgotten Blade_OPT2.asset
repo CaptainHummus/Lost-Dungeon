@@ -17,10 +17,12 @@ MonoBehaviour:
   pauseMovement: 1
   eventDescription: Something about the blade disturbs you. You decide to leave the
     blade there.
-  numberOfOptions: 0
   goldGain: 0
-  enemy: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 67c5c5018d7fade4198756b19a60a9ed, type: 2}
   chance: 0
   healthCalculation: 0
+  exitPortal: 0
+  deathEvent: 0
+  numberOfOptions: 0
   option1: {fileID: 0}
   option2: {fileID: 0}

@@ -6,20 +6,26 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField]
-    private ScriptableEnemy currentEnemy;
+    public ScriptableEnemy currentEnemy;
 
     [SerializeField]
     private IntVariable enemyHealth;
 
     public int deckLength = 6;
-    public int[] combatDeck;
+    public int[] combatDeck = new int[6] ;
 
+    [SerializeField]
+    private GameObject combatUI;
+
+    private void Awake()
+    {
+        combatUI = CombatManager.instance.gameObject;
+    }
 
 
     void Start()
     {
-        combatDeck = new int[deckLength];
+        //combatDeck = new int[deckLength];
         GetComponent<SpriteRenderer>().sprite = currentEnemy.enemySprite;
         enemyHealth.variable = Random.Range(currentEnemy.minHealth, currentEnemy.maxHealth + 1);
         combatDeck = currentEnemy.combatDeck.ToArray();
@@ -27,7 +33,6 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < combatDeck.Length; i++)
         {
-            Debug.Log("Slot " + i + " has " + (combatDeck[i]) + " power");
         }
 
 
@@ -37,7 +42,12 @@ public class Enemy : MonoBehaviour
         //    combatDeck[i] = i - 1;
         //    //Debug.Log("Slot " + i + " has " + (i - 1) + " power");
         //}
- 
+
+        combatUI.SetActive(true);
+    }
+
+    public void ReloadEnemy()
+    {
 
     }
 

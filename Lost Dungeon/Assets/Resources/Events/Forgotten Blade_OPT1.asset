@@ -18,10 +18,12 @@ MonoBehaviour:
   eventDescription: You feel the blade draining some of your energy upon taking it.
     You feel weaker but the sword appears powerful. All of your attacks will be stronger
     now.
-  numberOfOptions: 0
   goldGain: 0
-  enemy: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 67c5c5018d7fade4198756b19a60a9ed, type: 2}
   chance: 0
   healthCalculation: -2
+  exitPortal: 0
+  deathEvent: 0
+  numberOfOptions: 0
   option1: {fileID: 0}
   option2: {fileID: 0}

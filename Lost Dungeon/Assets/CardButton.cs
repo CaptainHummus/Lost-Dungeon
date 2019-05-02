@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CardButton : MonoBehaviour
@@ -20,12 +21,13 @@ public class CardButton : MonoBehaviour
 
     public void OnClicked()
     {
-        if (!played)
+        if (!played && combatManager.playerCardCounter < 2)
         {
             revealed = true;
             played = true;
             combatManager.AddToPower(cardValue, player);
             valueText.text = cardValue.ToString();
+            GetComponent<Image>().color = Color.red;
         }
 
     }
@@ -36,11 +38,12 @@ public class CardButton : MonoBehaviour
         revealed = true;
     }
 
-     void ResetValues()
+     public void ResetValues()
     {
         revealed = false;
         played = false;
         valueText.text = "?";
+        GetComponent<Image>().color = new Color(219, 219, 219);
     }
 
 }
