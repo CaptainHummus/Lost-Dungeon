@@ -97,6 +97,7 @@ public class CombatManager : MonoBehaviour
             {
                 enemyDeath.goldGain = Random.Range(100, 200);
                 EventHandler.instance.OverrideEvent(enemyDeath);
+                gameObject.SetActive(false);
             }
             playerThrowingKnives.variable--;
         }
