@@ -89,12 +89,12 @@ public class EventHandler : MonoBehaviour
 
     public void LoadRandomEvent()
     {
+        randomInt = Random.Range(1, 11);
         if (eventCount % 10 == 0)
         {
             OverrideEvent(portalEvent);
         }
-        randomInt = Random.Range(1, 11);
-        if (randomInt <= 5)
+        else if (randomInt <= 5)
         {
             selectedEvent = commonEvents[Random.Range(0, commonEvents.Count)];
 
@@ -107,6 +107,7 @@ public class EventHandler : MonoBehaviour
         {
             selectedEvent = rareEvents[Random.Range(0, rareEvents.Count)];
         }
+
         eventCount++;
         RunEvent(selectedEvent);
     }

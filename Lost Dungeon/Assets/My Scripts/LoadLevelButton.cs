@@ -8,4 +8,11 @@ public class LoadLevelButton : MonoBehaviour
     {
         GameManager.instance.LoadScene(sceneName);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    
 }

@@ -44,12 +44,16 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
 
     private animationMovement playerAnimation;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         health.variable = maxHP;
         gold.variable = 0;
@@ -74,16 +78,25 @@ public class Player : MonoBehaviour
             if (rb.velocity == Vector2.zero)
             {
                 playerAnimation = animationMovement.idle;
+                
             }
             if (Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y))
             {
                 if (rb.velocity.x < 0)
                 {
                     playerAnimation = animationMovement.left;
+                    if (!spriteRenderer.flipX)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
                 }
                 else
                 {
                     playerAnimation = animationMovement.right;
+                    if (spriteRenderer.flipX)
+                    {
+                        spriteRenderer.flipX = false;
+                    }
                 }
             }
             else if (Mathf.Abs(rb.velocity.x) < Mathf.Abs(rb.velocity.y))
@@ -97,6 +110,8 @@ public class Player : MonoBehaviour
                     playerAnimation = animationMovement.up;
                 }
             }
+            animator.SetInteger("Enum Direction", (int)playerAnimation);
+            Debug.Log(playerAnimation);
 
 
         }

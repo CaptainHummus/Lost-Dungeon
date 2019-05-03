@@ -5179,6 +5179,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3503764502466214971, guid: 6ca1e7ed130e9254fa8638d153ac496e,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3503764502980583640, guid: 6ca1e7ed130e9254fa8638d153ac496e,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -8727,6 +8732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111956561903620668, guid: 3e3b95b247e7482468ff4191af6856fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7111956561903620671, guid: 3e3b95b247e7482468ff4191af6856fb,
         type: 3}
