@@ -53,16 +53,16 @@ public class CombatManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
-
     }
 
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+        playerPower.variable = 0;
+        enemyPower.variable = 0;
         updateCardValues();
         player.canMove = false;
-
     }
 
     void updateCardValues()
@@ -98,6 +98,7 @@ public class CombatManager : MonoBehaviour
                 enemyDeath.goldGain = Random.Range(100, 200);
                 EventHandler.instance.OverrideEvent(enemyDeath);
                 gameObject.SetActive(false);
+                continueButton.SetActive(false);
             }
             playerThrowingKnives.variable--;
         }

@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;
+
+    [SerializeField]
+    private Event debugEvent;
     private void Awake()
     {
         if (instance == null)
@@ -27,23 +30,15 @@ public class GameManager : MonoBehaviour
             //LoadScene("Win Scene");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        else if (Input.GetKeyDown("c"))
+        {
+            EventHandler.instance.OverrideEvent(debugEvent);
+        }
     }
 
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void pausePlay(bool pause)
-    {
-        if (pause)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
     }
 
 }

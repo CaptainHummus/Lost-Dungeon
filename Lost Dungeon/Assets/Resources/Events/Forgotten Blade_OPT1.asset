@@ -22,7 +22,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   chance: 0
   healthCalculation: -2
-  powerUp: 0
+  powerUp: 1
   throwingKnives: 0
   exitPortal: 0
   deathEvent: 0

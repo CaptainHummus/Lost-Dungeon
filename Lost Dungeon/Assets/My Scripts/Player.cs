@@ -128,6 +128,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < combatDeck.Length; i++)
         {
             combatDeck[i] = i - 1 + powerUp;
+            Debug.Log("Plus One");
         }
     }
 

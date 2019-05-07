@@ -107,7 +107,6 @@ public class EventHandler : MonoBehaviour
         {
             selectedEvent = rareEvents[Random.Range(0, rareEvents.Count)];
         }
-
         eventCount++;
         RunEvent(selectedEvent);
     }
