@@ -10,8 +10,6 @@ public class ValueUpdaterUI : MonoBehaviour
 
     private TMP_Text text;
 
-    bool unchanged = false;
-
     private void Awake()
     {
         text = GetComponent<TMP_Text>();

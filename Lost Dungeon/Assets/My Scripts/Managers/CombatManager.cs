@@ -15,7 +15,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField]
     private IntVariable enemyHealth = null;
     [SerializeField]
-    private IntVariable playerThrowingKnives;
+    private IntVariable playerThrowingKnives = null;
 
     [SerializeField]
     private Event enemyDeath = null;
@@ -32,7 +32,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField]
     private Enemy enemy;
     [SerializeField]
-    private GameObject continueButton;
+    private GameObject continueButton = null;
 
 
     [SerializeField]

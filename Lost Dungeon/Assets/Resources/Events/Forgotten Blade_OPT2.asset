@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b98fd906be6b84b9675b0261dea021, type: 3}
   m_Name: Forgotten Blade_OPT2
   m_EditorClassIdentifier: 
-  eventName: Refrain from taking the blade
+  eventName: Leave the Blade
   rarity: 0
   pauseMovement: 1
   eventDescription: Something about the blade disturbs you. You decide to leave the

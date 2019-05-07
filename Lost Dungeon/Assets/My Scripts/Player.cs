@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     public int powerUp = 0;
     [SerializeField]
-    private IntVariable playerThrowingKnives;
+    private IntVariable playerThrowingKnives = null;
 
 
     public int knownSlots = 1;
@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
                 }
             }
             animator.SetInteger("Enum Direction", (int)playerAnimation);
-            Debug.Log(playerAnimation);
 
 
         }
@@ -128,7 +127,6 @@ public class Player : MonoBehaviour
         for (int i = 0; i < combatDeck.Length; i++)
         {
             combatDeck[i] = i - 1 + powerUp;
-            Debug.Log("Plus One");
         }
     }
 

@@ -9,8 +9,6 @@ public class PostGameText : MonoBehaviour
     [SerializeField]
     private IntVariable playerGold = null;
     [SerializeField]
-    private IntVariable playerHealth = null;
-    [SerializeField]
     private string text1 = null;
     [SerializeField]
     private string text2 = null;

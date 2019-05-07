@@ -14,9 +14,9 @@ public class CardButton : MonoBehaviour
     [SerializeField]
     private bool played;
     [SerializeField]
-    private TextMeshProUGUI valueText;
+    private TextMeshProUGUI valueText = null;
     [SerializeField]
-    private CombatManager combatManager;
+    private CombatManager combatManager = null;
 
 
     public void OnClicked()

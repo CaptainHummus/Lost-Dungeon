@@ -26,7 +26,7 @@ public class EventHandler : MonoBehaviour
     [SerializeField]
     private IntVariable playerGold = null;
     [SerializeField]
-    private IntVariable playerThrowingKnives;
+    private IntVariable playerThrowingKnives = null;
     [SerializeField]
     private GameObject enemyPrefab = null;
     [SerializeField]
@@ -205,14 +205,11 @@ public class EventHandler : MonoBehaviour
         {
            var newEnemy = Instantiate(enemyPrefab);
            newEnemy.GetComponent<Enemy>().currentEnemy = selectedEvent.enemy;
-            //newEnemy.GetComponent<Enemy>()
 
-            Debug.Log("Enemy is NOT null");
 
         }
         else
         {
-            Debug.Log("Enemy is null");
         }
 
         if (selectedEvent.deathEvent)

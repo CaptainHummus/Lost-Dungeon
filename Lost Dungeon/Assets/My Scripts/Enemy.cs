@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public ScriptableEnemy currentEnemy;
 
     [SerializeField]
-    private IntVariable enemyHealth;
+    private IntVariable enemyHealth = null;
 
     public int deckLength = 6;
     public int[] combatDeck = new int[6] ;

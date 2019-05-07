@@ -5,9 +5,9 @@ using UnityEngine;
 public class chest : MonoBehaviour
 {
     [SerializeField]
-    private Event chestEvent;
+    private Event chestEvent = null;
     [SerializeField]
-    private GameObject openChest;
+    private GameObject openChest = null;
     private bool opened = false;
 
     private void OnTriggerEnter2D(Collider2D collision)

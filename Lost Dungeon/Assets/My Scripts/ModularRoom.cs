@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ModularRoom : MonoBehaviour
 {
-    [SerializeField]
-    private bool explored = false;
+    public bool explored = false;
     [SerializeField]
     GameObject litTorch = null;
     [SerializeField]
@@ -70,15 +69,11 @@ public class ModularRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (explored)
-        {
-        }
-        else
+        if (!explored)
         {
             RevealAdjacentRooms();
             ExploreRoom();
             EventHandler.instance.LoadRandomEvent();
-            
         }
     }
 
@@ -93,6 +88,7 @@ public class ModularRoom : MonoBehaviour
                                                transform.position.z)
                                                , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('S');
+                GameManager.instance.AddRoomToList(tempRoom);
             }
         }
         if (eastOpen)
@@ -104,6 +100,7 @@ public class ModularRoom : MonoBehaviour
                                                transform.position.z)
                                                , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('W');
+                GameManager.instance.AddRoomToList(tempRoom);
             }
         }
         if (southOpen)
@@ -115,6 +112,7 @@ public class ModularRoom : MonoBehaviour
                                                transform.position.z)
                                                , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('N');
+                GameManager.instance.AddRoomToList(tempRoom);
             }
         }
         if (westOpen)
@@ -126,6 +124,7 @@ public class ModularRoom : MonoBehaviour
                                                transform.position.z)
                                                , transform.rotation);
                 tempRoom.GetComponent<ModularRoom>().NewTile('E');
+                GameManager.instance.AddRoomToList(tempRoom);
             }
         }
     }
@@ -134,6 +133,7 @@ public class ModularRoom : MonoBehaviour
     {
         litTorch.SetActive(true);
         explored = true;
+        GameManager.instance.CheckRooms();
     }
 
     void NewTile(char entranceDirection)
